@@ -31,7 +31,7 @@ def Property_list(request, format=None):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-@api_view(['GET', 'POST', 'DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def Property_detail(request, id, format=None):
 
     try:
@@ -43,7 +43,7 @@ def Property_detail(request, id, format=None):
         serializer = PropertySerializer(property)
         return Response(serializer.data)
     
-    elif request.method == 'POST':
+    elif request.method == 'PUT':
         serializer = PropertySerializer(property, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -71,7 +71,7 @@ def Owner_list(request, format=None):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-@api_view(['GET', 'POST', 'DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def Owner_detail(request, id, format=None):
 
     try:
@@ -83,7 +83,7 @@ def Owner_detail(request, id, format=None):
         serializer = OwnerSerializer(owner)
         return Response(serializer.data)
     
-    elif request.method == 'POST':
+    elif request.method == 'PUT':
         serializer = OwnerSerializer(owner, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -111,7 +111,7 @@ def Customer_list(request, format=None):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-@api_view(['GET', 'POST', 'DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def Customer_detail(request, id, format=None):
 
     try:
@@ -123,7 +123,7 @@ def Customer_detail(request, id, format=None):
         serializer = CustomerSerializer(customer)
         return Response(serializer.data)
     
-    elif request.method == 'POST':
+    elif request.method == 'PUT':
         serializer = CustomerSerializer(customer, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -151,7 +151,7 @@ def Reservation_list(request, format=None):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-@api_view(['GET', 'POST', 'DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def Reservation_detail(request, id, format=None):
 
     try:
@@ -163,7 +163,7 @@ def Reservation_detail(request, id, format=None):
         serializer = ReservationSerializer(reservation)
         return Response(serializer.data)
     
-    elif request.method == 'POST':
+    elif request.method == 'PUT':
         serializer = ReservationSerializer(reservation, data=request.data)
         if serializer.is_valid():
             serializer.save()
